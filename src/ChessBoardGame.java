@@ -29,10 +29,18 @@ public class ChessBoardGame extends BoardGame{
 					//這一排都是後手的小兵
 					this.setPiece(i , j , new PawnChessPiece(i , j , Player.SECOND , this) );
 				}
+				else if(i == 0 && j == 4)
+				{
+					this.setPiece(i, j, new KingChessPiece(i , j , Player.SECOND , this) );
+				}
 				else if(i == 6)
 				{
 					//這一排都是先手的小兵
 					this.setPiece(i , j , new PawnChessPiece(i , j , Player.FIRST , this) );
+				}
+				else if(i == 7 && j == 4)
+				{
+					this.setPiece(i, j, new KingChessPiece(i , j , Player.FIRST , this) );
 				}
 				else
 				{
