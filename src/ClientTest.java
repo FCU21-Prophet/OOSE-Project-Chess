@@ -53,6 +53,7 @@ public class ClientTest {
 //		System.out.println();
 //		System.out.println("0,4");
 //		BG.showBoard();
+		 
 	}
 	
 }
