@@ -37,6 +37,10 @@ public class ChessBoardGame extends BoardGame{
 				{
 					this.setPiece(i, j, new KnightChessPiece(i , j , Player.SECOND , this) );
 				}
+				else if(i == 0 && j == 3)
+				{
+					this.setPiece(i, j, new QueenChessPiece(i , j , Player.SECOND , this) );
+				}
 				else if(i == 0 && j == 4)
 				{
 					this.setPiece(i, j, new KingChessPiece(i , j , Player.SECOND , this) );
@@ -48,6 +52,10 @@ public class ChessBoardGame extends BoardGame{
 				else if(i == 0 && j == 7)
 				{
 					this.setPiece(i, j, new CastleChessPiece(i , j , Player.SECOND , this) );
+				}
+				else if(i == 7 && j == 3)
+				{
+					this.setPiece(i, j, new QueenChessPiece(i , j , Player.FIRST , this) );
 				}
 				else if(i == 6)
 				{
