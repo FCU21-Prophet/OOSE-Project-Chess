@@ -1,16 +1,7 @@
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 public class ChessGUI extends JFrame implements ActionListener
 {
@@ -19,20 +10,20 @@ public class ChessGUI extends JFrame implements ActionListener
 	private JButton[][] board;
 	private BoardGame boardGame;
 	private JLabel status;
-	public static final ImageIcon WHITE_PAWN_IMAGE = new ImageIcon("white_pawn.png");
-	public static final ImageIcon WHITE_KING_IMAGE = new ImageIcon("white_king.png");
-	public static final ImageIcon WHITE_QUEEN_IMAGE = new ImageIcon("white_queen.png");
-	public static final ImageIcon WHITE_KNIGHT_IMAGE = new ImageIcon("white_knight.png");
-	public static final ImageIcon WHITE_BISHOP_IMAGE = new ImageIcon("white_bishop.png");
-	public static final ImageIcon WHITE_CASTLE_IMAGE = new ImageIcon("white_castle.png");
+	public static ImageIcon WHITE_PAWN_IMAGE = new ImageIcon("img/chess_piece_white_pawn_T.png");
+	public static ImageIcon WHITE_KING_IMAGE = new ImageIcon("img/chess_piece_white_king_T.png");
+	public static ImageIcon WHITE_QUEEN_IMAGE = new ImageIcon("img/chess_piece_white_queen_T.png");
+	public static ImageIcon WHITE_KNIGHT_IMAGE = new ImageIcon("img/chess_piece_white_knight_T.png");
+	public static ImageIcon WHITE_BISHOP_IMAGE = new ImageIcon("img/chess_piece_white_bishop_T.png");
+	public static ImageIcon WHITE_CASTLE_IMAGE = new ImageIcon("img/chess_piece_white_rook_T.png");
 	
-	public static final ImageIcon BLACK_PAWN_IMAGE = new ImageIcon("black_pawn.png");
-	public static final ImageIcon BLACK_KING_IMAGE = new ImageIcon("black_king.png");
-	public static final ImageIcon BLACK_QUEEN_IMAGE = new ImageIcon("black_queen.png");
-	public static final ImageIcon BLACK_KNIGHT_IMAGE = new ImageIcon("black_knight.png");
-	public static final ImageIcon BLACK_BISHOP_IMAGE = new ImageIcon("black_bishop.png");
-	public static final ImageIcon BLACK_CASTLE_IMAGE = new ImageIcon("black_castle.png");
-	
+	public static ImageIcon BLACK_PAWN_IMAGE = new ImageIcon("img/chess_piece_black_pawn_T.png");
+	public static ImageIcon BLACK_KING_IMAGE = new ImageIcon("img/chess_piece_black_king_T.png");
+	public static ImageIcon BLACK_QUEEN_IMAGE = new ImageIcon("img/chess_piece_black_queen_T.png");
+	public static ImageIcon BLACK_KNIGHT_IMAGE = new ImageIcon("img/chess_piece_black_knight_T.png");
+	public static ImageIcon BLACK_BISHOP_IMAGE = new ImageIcon("img/chess_piece_black_bishop_T.png");
+	public static ImageIcon BLACK_CASTLE_IMAGE = new ImageIcon("img/chess_piece_black_rook_T.png");
+
 	public ChessGUI()
 	{
 		statusPanel = new JPanel();
