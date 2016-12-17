@@ -52,5 +52,5 @@ public abstract class BoardGame {
 	public abstract void showBoard(); //印出棋盤內容狀況，測試用
 	public abstract void commandHandle(int x, int y);
 	public abstract boolean hasWinner();
-	public abstract void printWinner();
+	public abstract String printWinner();
 }

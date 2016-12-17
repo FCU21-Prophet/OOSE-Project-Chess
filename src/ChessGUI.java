@@ -1,4 +1,6 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,12 +9,16 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class ChessGUI extends JFrame implements ActionListener
 {
+	JPanel statusPanel;
+	JPanel chessPanel;
 	private JButton[][] board;
 	private BoardGame boardGame;
-	
+	private JLabel status;
 	public static final ImageIcon WHITE_PAWN_IMAGE = new ImageIcon("white_pawn.png");
 	public static final ImageIcon WHITE_KING_IMAGE = new ImageIcon("white_king.png");
 	public static final ImageIcon WHITE_QUEEN_IMAGE = new ImageIcon("white_queen.png");
@@ -29,10 +35,15 @@ public class ChessGUI extends JFrame implements ActionListener
 	
 	public ChessGUI()
 	{
+		statusPanel = new JPanel();
+		status = new JLabel();
+		statusPanel.add(status);
+		chessPanel = new JPanel();
 		this.boardGame = ChessBoardGame.getInstance();
 		this.board = new JButton[boardGame.getBoard().length][];
-		this.setSize(720 , 720);
-		this.setLayout(new GridLayout(8 , 8) );
+		this.setLayout(new BorderLayout() );
+		this.setSize(720 , 740);
+		chessPanel.setLayout(new GridLayout(8 , 8) );
 		
 		for(int i = 0 ; i < boardGame.getBoard().length ; i++)
 		{
@@ -46,9 +57,11 @@ public class ChessGUI extends JFrame implements ActionListener
 				this.board[i][j].setSize(90 , 90);
 				this.board[i][j].addActionListener(this);
 				
-				this.add(this.board[i][j]);
+				chessPanel.add(this.board[i][j]);
 			}
 		}
+		this.add(statusPanel , BorderLayout.NORTH);
+		this.add(chessPanel , BorderLayout.CENTER);
 		this.update();
 		this.setVisible(true);
 	}
@@ -75,6 +88,9 @@ public class ChessGUI extends JFrame implements ActionListener
 	
 	private void update()
 	{
+		status.setText(boardGame.nowPlayer.playerName);
+		if(boardGame.hasWinner())
+			status.setText(boardGame.printWinner());
 		for(int i = 0 ; i < boardGame.getBoard().length ; i++)
 		{			
 			for(int j = 0 ; j < boardGame.getBoard()[i].length ; j++)

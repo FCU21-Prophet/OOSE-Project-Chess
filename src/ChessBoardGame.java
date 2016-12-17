@@ -155,14 +155,18 @@ public class ChessBoardGame extends BoardGame{
 			//確定成功，可移動
 			this.chessPicking.moveTo(x, y);
 			this.refreshTargetable();
-			if(this.nowPlayer == this.playerA)
+			if(!hasWinner())
 			{
-				this.nowPlayer = this.playerB;
+				if(this.nowPlayer == this.playerA)
+				{
+					this.nowPlayer = this.playerB;
+				}
+				else
+				{
+					this.nowPlayer = this.playerA;
+				}	
 			}
-			else
-			{
-				this.nowPlayer = this.playerA;
-			}	
+			
 		}
 	}
 
@@ -202,9 +206,9 @@ public class ChessBoardGame extends BoardGame{
 	}
 
 	@Override
-	public void printWinner() {
+	public String printWinner() {
 		// TODO Auto-generated method stub
-		System.out.println(this.nowPlayer.playerName + " win!");
+		return this.nowPlayer.playerName + " win!";
 	}
 
 	
