@@ -4,17 +4,28 @@ public abstract class BoardGame {
 	public Player nowPlayer;
 	private Piece[][] board;
 	public boolean isGaming = true;
+	protected static BoardGame uniqueInstance = null;
 	
+	public static BoardGame getInstance()
+	{
+		return uniqueInstance;
+	}
+	
+	public void setPlayer(String playerNameA , String playerNameB)
+	{
+		this.playerA = new Player(playerNameA , Player.FIRST);
+		this.playerB = new Player(playerNameB , Player.SECOND);
+		this.nowPlayer = this.playerA;
+	}
 	public Piece[][] getBoard()
 	{
 		return this.board;
 	}
-	public void setBoard(int x , int y)
+	protected void setBoard(int x , int y)
 	{
 		if(this.board == null)
 		{
 			this.board = makeBoard(x ,  y);
-//			this.board = new Piece[x][y];
 		}
 	}
 	
@@ -22,8 +33,24 @@ public abstract class BoardGame {
 	{
 		this.board[x][y] = piece;
 	}
-	public abstract Piece[][] makeBoard(int x , int y); 
-	public abstract void arrangeBoard(String playerNameA , String playerNameB); //擺放棋子
+	
+	public void eatCommand(int x , int y)
+	{
+		if(this.isGaming)
+		{
+			commandHandle(x, y);
+		}		
+		if(this.hasWinner())
+		{
+			this.isGaming = false;
+			printWinner();
+		}
+	}
+	
+	protected abstract Piece[][] makeBoard(int x , int y); 
+	protected abstract void arrangeBoard(); //擺放棋子
 	public abstract void showBoard(); //印出棋盤內容狀況，測試用
-	public abstract void eatCommand(int x , int y);
+	public abstract void commandHandle(int x, int y);
+	public abstract boolean hasWinner();
+	public abstract void printWinner();
 }

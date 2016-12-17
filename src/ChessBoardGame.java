@@ -5,19 +5,19 @@ public class ChessBoardGame extends BoardGame{
 	public boolean playerChosing = true;
 	public ChessPiece chessPicking; //目前被選上的棋子，等待著被移動，或著改去選其他棋子
 	
-	public Piece[][] makeBoard(int x , int y)
+	private ChessBoardGame()
+	{		
+	}
+	
+	protected Piece[][] makeBoard(int x , int y)
 	{
 		return new ChessPiece[x][y];
 	}
 	
 	@Override
-	public void arrangeBoard(String playerNameA , String playerNameB)
+	protected void arrangeBoard()
 	{
-		// TODO Auto-generated method stub
-		this.playerA = new Player(playerNameA , Player.FIRST);
-		this.playerB = new Player(playerNameB , Player.SECOND);
-		this.nowPlayer = this.playerA;
-		
+		// TODO Auto-generated method stub		
 		this.setBoard(8 , 8);
 		
 		for(int i = 0 ; i < this.getBoard().length ; i++)
@@ -106,6 +106,16 @@ public class ChessBoardGame extends BoardGame{
 		}
 	}
 	
+	public static BoardGame getInstance()
+	{
+		if(BoardGame.uniqueInstance == null)
+		{
+			BoardGame.uniqueInstance = new ChessBoardGame();
+			BoardGame.uniqueInstance.arrangeBoard();			
+		}
+		return BoardGame.uniqueInstance;
+	}
+	
 	private void refreshTargetable()
 	{
 		for(int i = 0 ; i < this.getBoard().length ; i++)
@@ -130,17 +140,19 @@ public class ChessBoardGame extends BoardGame{
 		}
 	}
 	
-	public void eatCommand(int x , int y)
+	public void commandHandle(int x , int y)
 	{
 		ChessPiece CPTemp = (ChessPiece)this.getBoard()[x][y];
 		if(CPTemp.chessTeam == this.nowPlayer.chessTeam && CPTemp != this.chessPicking)
 		{
+			//選棋階段，看哪些格子可動
 			this.chessPicking = CPTemp;
 			this.refreshTargetable();
 			this.setTargetable(this.chessPicking.getMoveAble() );
 		}
 		else if(CPTemp.targetable)
 		{
+			//確定成功，可移動
 			this.chessPicking.moveTo(x, y);
 			this.refreshTargetable();
 			if(this.nowPlayer == this.playerA)
@@ -150,21 +162,50 @@ public class ChessBoardGame extends BoardGame{
 			else
 			{
 				this.nowPlayer = this.playerA;
-			}			
+			}	
 		}
 	}
 
 	@Override
-	public void showBoard() {
+	public void showBoard() 
+	{
 		// TODO Auto-generated method stub
 		for(int i = 0 ; i < this.getBoard().length ; i++)
 		{
 			for(int j = 0 ; j < this.getBoard()[i].length ; j++)
 			{
 				ChessPiece CPTemp = (ChessPiece)this.getBoard()[i][j];
-				System.out.print(CPTemp.getChessType() + "/" + CPTemp.targetable + " ");
+				System.out.print(CPTemp.getChessType() + "/" + CPTemp.targetable + "\t");
 			}
 			System.out.println();
 		}
 	}
+
+	@Override
+	public boolean hasWinner() {
+		// TODO Auto-generated method stub
+		int count = 0;
+		ChessPiece[][] CPTemp = (ChessPiece[][])this.getBoard();
+		for(int i = 0 ; i < this.getBoard().length ; i++)
+		{
+			for(int j = 0 ; j < this.getBoard()[i].length ; j++)
+			{
+				if(CPTemp[i][j] instanceof KingChessPiece)
+					count = count + 1;
+			}
+		}
+		if(count == 2)
+			return false;
+		else
+			return true;
+
+	}
+
+	@Override
+	public void printWinner() {
+		// TODO Auto-generated method stub
+		System.out.println(this.nowPlayer.playerName + " win!");
+	}
+
+	
 }
