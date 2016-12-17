@@ -35,6 +35,7 @@ public class ChessGUI extends JFrame implements ActionListener
 		this.setLayout(new BorderLayout() );
 		this.setSize(720 , 740);
 		chessPanel.setLayout(new GridLayout(8 , 8) );
+		reSizeOfChess();
 		
 		for(int i = 0 ; i < boardGame.getBoard().length ; i++)
 		{
@@ -160,5 +161,26 @@ public class ChessGUI extends JFrame implements ActionListener
 			}
 		}
 	}
-	
+
+	void reSizeOfChess() {
+		WHITE_PAWN_IMAGE = reSize(WHITE_PAWN_IMAGE);
+		WHITE_KING_IMAGE = reSize(WHITE_KING_IMAGE);
+		WHITE_QUEEN_IMAGE = reSize(WHITE_QUEEN_IMAGE);
+		WHITE_KNIGHT_IMAGE = reSize(WHITE_KNIGHT_IMAGE);
+		WHITE_BISHOP_IMAGE = reSize(WHITE_BISHOP_IMAGE);
+		WHITE_CASTLE_IMAGE = reSize(WHITE_CASTLE_IMAGE);
+
+		BLACK_PAWN_IMAGE = reSize(BLACK_PAWN_IMAGE);
+		BLACK_KING_IMAGE = reSize(BLACK_KING_IMAGE);
+		BLACK_QUEEN_IMAGE = reSize(BLACK_QUEEN_IMAGE);
+		BLACK_KNIGHT_IMAGE = reSize(BLACK_KNIGHT_IMAGE);
+		BLACK_BISHOP_IMAGE = reSize(BLACK_BISHOP_IMAGE);
+		BLACK_CASTLE_IMAGE = reSize(BLACK_CASTLE_IMAGE);
+	}
+
+	ImageIcon reSize (ImageIcon ori) {
+		Image img = ori.getImage().getScaledInstance(95,95,java.awt.Image.SCALE_SMOOTH);
+		ImageIcon dest = new ImageIcon(img);
+		return dest;
+	}
 }
