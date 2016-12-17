@@ -64,6 +64,7 @@ public class ChessGUI extends JFrame implements ActionListener
 		this.add(chessPanel , BorderLayout.CENTER);
 		this.update();
 		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	@Override
