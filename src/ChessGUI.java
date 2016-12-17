@@ -50,11 +50,11 @@ public class ChessGUI extends JFrame implements ActionListener
 				this.board[i][j].addActionListener(this);
 				if((i + j)%2 == 0)
 				{
-					this.board[i][j].setBackground(Color.DARK_GRAY);
+					this.board[i][j].setBackground(Color.GRAY);
 				}
 				else
 				{
-					this.board[i][j].setBackground(Color.GRAY);
+					this.board[i][j].setBackground(Color.DARK_GRAY);
 				}
 				
 				chessPanel.add(this.board[i][j]);
