@@ -47,6 +47,13 @@ public abstract class BoardGame {
 		}
 	}
 	
+	public void restart()
+	{
+		this.arrangeBoard();
+		this.setPlayer(this.playerA.playerName , this.playerB.playerName);
+		this.isGaming = true;
+	}
+	
 	protected abstract Piece[][] makeBoard(int x , int y); 
 	protected abstract void arrangeBoard(); //擺放棋子
 	public abstract void showBoard(); //印出棋盤內容狀況，測試用

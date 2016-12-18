@@ -10,6 +10,9 @@ public class ChessGUI extends JFrame implements ActionListener
 	private JButton[][] board;
 	private BoardGame boardGame;
 	private JLabel status;
+	private JMenu gameMenu;
+	private JMenuBar gameMenuBar;
+	private JMenuItem restartMenuItem;
 	public static ImageIcon WHITE_PAWN_IMAGE = new ImageIcon("img/chess_piece_white_pawn_T.png");
 	public static ImageIcon WHITE_KING_IMAGE = new ImageIcon("img/chess_piece_white_king_T.png");
 	public static ImageIcon WHITE_QUEEN_IMAGE = new ImageIcon("img/chess_piece_white_queen_T.png");
@@ -36,6 +39,12 @@ public class ChessGUI extends JFrame implements ActionListener
 		this.setSize(720 , 740);
 		chessPanel.setLayout(new GridLayout(8 , 8) );
 		reSizeOfChess();
+		this.gameMenuBar = new JMenuBar();
+		this.gameMenu = new JMenu("選單");
+		this.restartMenuItem = new JMenuItem("再來一局!");
+		this.restartMenuItem.addActionListener(this);
+		this.gameMenu.add(this.restartMenuItem);
+		this.gameMenuBar.add(this.gameMenu);
 		
 		for(int i = 0 ; i < boardGame.getBoard().length ; i++)
 		{
@@ -65,6 +74,7 @@ public class ChessGUI extends JFrame implements ActionListener
 		this.update();
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setJMenuBar(this.gameMenuBar);
 	}
 	
 	@Override
@@ -84,7 +94,13 @@ public class ChessGUI extends JFrame implements ActionListener
 					this.update();
 				}
 			}
-		}		
+		}
+		if(this.restartMenuItem == e.getSource() )
+		{
+			System.out.println("jajar");
+			this.boardGame.restart();
+			this.update();
+		}
 	}
 	
 	private void update()
