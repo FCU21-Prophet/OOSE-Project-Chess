@@ -1,10 +1,8 @@
-import java.util.Scanner;
-
 public class ClientTest {
 	public static void main(String args[] )
 	{
 		BoardGame BG = ChessBoardGame.getInstance();
-		BG.setPlayer("Alice", "Bob");
+		BG.setPlayer("White", "Black");
 		
 		ChessGUI testGUI = new ChessGUI();
 		 

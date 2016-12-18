@@ -29,6 +29,7 @@ public class ChessGUI extends JFrame implements ActionListener
 
 	public ChessGUI()
 	{
+		setTitle("他自狠來他自惡，我自一口真氣足");
 		statusPanel = new JPanel();
 		status = new JLabel();
 		statusPanel.add(status);
@@ -36,12 +37,12 @@ public class ChessGUI extends JFrame implements ActionListener
 		this.boardGame = ChessBoardGame.getInstance();
 		this.board = new JButton[boardGame.getBoard().length][];
 		this.setLayout(new BorderLayout() );
-		this.setSize(720 , 740);
+		this.setSize(720 , 800);
 		chessPanel.setLayout(new GridLayout(8 , 8) );
 		reSizeOfChess();
 		this.gameMenuBar = new JMenuBar();
 		this.gameMenu = new JMenu("Menu");
-		this.restartMenuItem = new JMenuItem("restart!");
+		this.restartMenuItem = new JMenuItem("restart");
 		this.restartMenuItem.addActionListener(this);
 		this.gameMenu.add(this.restartMenuItem);
 		this.gameMenuBar.add(this.gameMenu);
