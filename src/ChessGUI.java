@@ -40,8 +40,8 @@ public class ChessGUI extends JFrame implements ActionListener
 		chessPanel.setLayout(new GridLayout(8 , 8) );
 		reSizeOfChess();
 		this.gameMenuBar = new JMenuBar();
-		this.gameMenu = new JMenu("選單");
-		this.restartMenuItem = new JMenuItem("再來一局!");
+		this.gameMenu = new JMenu("Menu");
+		this.restartMenuItem = new JMenuItem("restart!");
 		this.restartMenuItem.addActionListener(this);
 		this.gameMenu.add(this.restartMenuItem);
 		this.gameMenuBar.add(this.gameMenu);
