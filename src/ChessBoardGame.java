@@ -209,9 +209,9 @@ public class ChessBoardGame extends BoardGame{
 	@Override
 	public String printWinner() {
 		// TODO Auto-generated method stub
-		String[] randomLyrics = {"他強任他強，清風拂山崗" , "他橫任他橫，明月照大江" , "他自狠來他自惡，我自一口真氣足"};
+		String[] randomLyrics = {"他強任他強，清風拂山崗；他橫任他橫，明月照大江。" , "他自狠來他自惡，我自一口真氣足。"};
 		Random random = new Random();
-		return randomLyrics[random.nextInt(randomLyrics.length)] + "-恭喜" + this.nowPlayer.playerName + "獲勝!";
+		return randomLyrics[random.nextInt(randomLyrics.length)] + "   恭喜" + this.nowPlayer.playerName + "獲勝!";
 	}
 
 	
