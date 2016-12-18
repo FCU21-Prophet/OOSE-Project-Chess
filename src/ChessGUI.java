@@ -29,7 +29,7 @@ public class ChessGUI extends JFrame implements ActionListener
 
 	public ChessGUI()
 	{
-		setTitle("他自狠來他自惡，我自一口真氣足");
+		setTitle("Have a good GAME!");
 		statusPanel = new JPanel();
 		status = new JLabel();
 		statusPanel.add(status);
@@ -70,12 +70,13 @@ public class ChessGUI extends JFrame implements ActionListener
 				chessPanel.add(this.board[i][j]);
 			}
 		}
-		this.add(statusPanel , BorderLayout.NORTH);
+		this.add(statusPanel , BorderLayout.SOUTH);
 		this.add(chessPanel , BorderLayout.CENTER);
 		this.update();
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setJMenuBar(this.gameMenuBar);
+		status.setText("Copyright 穢 2016 Vita-Sexualis Team, All rights reserved.");
 	}
 	
 	@Override
@@ -106,7 +107,7 @@ public class ChessGUI extends JFrame implements ActionListener
 	
 	private void update()
 	{
-		status.setText(boardGame.nowPlayer.playerName);
+		status.setText("It's " + boardGame.nowPlayer.playerName + "'s turn.");
 		if(boardGame.hasWinner())
 			status.setText(boardGame.printWinner());
 		for(int i = 0 ; i < boardGame.getBoard().length ; i++)
