@@ -34,7 +34,7 @@ public abstract class BoardGame {
 		this.board[x][y] = piece;
 	}
 	
-	public void eatCommand(int x , int y)
+	public final void eatCommand(int x , int y)
 	{
 		if(this.isGaming)
 		{
