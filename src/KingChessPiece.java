@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class KingChessPiece extends ChessPiece
 {
-	
 	public KingChessPiece(int x , int y , int chessTeam , BoardGame boardGame)
 	{
 		this.setChessType(ChessPiece.KING);

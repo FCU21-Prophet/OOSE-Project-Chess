@@ -1,10 +1,8 @@
-import java.util.ArrayList;
-
 public abstract class Piece {
 	private int[] position = new int[2];
 	public BoardGame boardGame;
-	public int chessTeam; //´Ñ¤l©ÒÄİ°}Àç¡A1¬°¥ı¤â¡A2¬°«á¤â¡A0¬°¨S¦³
-	
+	public int chessTeam; //æ£‹å­æ‰€å±¬é™£ç‡Ÿï¼Œ1ç‚ºå…ˆæ‰‹ï¼Œ2ç‚ºå¾Œæ‰‹ï¼Œ0ç‚ºæ²’æœ‰
+
 	public void setPosition(int x , int y)
 	{
 		this.position[0] = x;
@@ -12,9 +10,9 @@ public abstract class Piece {
 	}
 	public int[] getPosition()
 	{
-		return this.position.clone(); //³o¸Ì¥u¥µclone¬O¦]¬°¤£·QÅı¤H®a¥Îget°Ê¨ì§Aªº¦ì¤l
+		return this.position.clone(); //é€™è£¡åªæ‰”cloneæ˜¯å› ç‚ºä¸æƒ³è®“äººå®¶ç”¨getå‹•åˆ°ä½ çš„ä½å­
 	}
-	
+
 	public void setBoardGame(BoardGame input)
 	{
 		this.boardGame = input;
@@ -23,7 +21,7 @@ public abstract class Piece {
 	{
 		return this.boardGame;
 	}
-	
+
 	public void setChessTeam(int chessTeam)
 	{
 		this.chessTeam = chessTeam;

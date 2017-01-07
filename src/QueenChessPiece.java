@@ -12,8 +12,8 @@ public class QueenChessPiece extends ChessPiece
 	}
 
 	@Override
-	public ArrayList<int[]> getMoveAble() {
-		
+	public ArrayList<int[]> getMoveAble()
+	{
 		ArrayList<int[]> output = new ArrayList<int[]>();
 		int originX = this.getPosition()[0];
 		int originY = this.getPosition()[1];

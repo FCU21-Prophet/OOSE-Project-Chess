@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public abstract class ChessPiece extends Piece {	
+public abstract class ChessPiece extends Piece {
 	private String chessType;
 	private boolean isMoved = false; //棋子是否已經移動過，預設為false，還沒移動過
 	public boolean targetable = false; //標記該旗子是否為可移動之目標

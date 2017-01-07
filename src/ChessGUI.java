@@ -76,7 +76,7 @@ public class ChessGUI extends JFrame implements ActionListener
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setJMenuBar(this.gameMenuBar);
-		status.setText("Copyright © 2016 Vita-Sexualis Team, All rights reserved.");
+		status.setText("Copyright © 2017 Vita-Sexualis Team, All rights reserved.");
 	}
 	
 	@Override
